@@ -1,0 +1,41 @@
+var objex1 = {letter:'b', number:'2'};
+var objex2 = {letter:'b', number:'2'};
+var objex3 = {letter:'c', number:'2'};
+var objex4 = {letter:'b', number:'2', symbol:'&'};
+var objex5 = {};
+var objex6 = {};
+
+function copy(obj) {
+    var objCopy = {};
+    for (var prop in obj) {
+        objCopy[prop] = obj[prop];
+    }
+    return objCopy;
+}
+
+function equal(objA, objB) {
+    /*var objAarray = Object.keys(objA);
+    var objBarray = Object.keys(objB);
+    if (objAarray.length!==objBarray.length) {return false;}*/
+    function value (obj1, obj2){
+        for (var prop in obj1){
+            if (obj1[prop]===obj2[prop]){return true;}
+            else {return false;}
+        }
+    }
+    if (similar(objA, objB) && value(objA, objB)){return true;}
+    else {return false;}
+}
+
+function similar(objA, objB){
+    var objAarray = Object.keys(objA);
+    var objBarray = Object.keys(objB);
+    if (objAarray.length!==objBarray.length) {
+        return false;
+    }
+    for (var index = 0; index<=objAarray.lenth; index++)
+        if (objAarray[index] !== objBarray[index]) 
+        {return false;
+        }
+        return true;
+}
